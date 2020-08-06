@@ -46,14 +46,14 @@ class TollController extends SmartCrudController
         Log::info('TollController.getTopAccessToken => not cached');
 
         $clients = new Client();
-        $uri =  config('toptoll.top-server') . config('toptoll.top-prefix'). '‫‪/Account/Login‬‬' ;
+        $uri =  config('toptoll.top-server') . config('toptoll.top-prefix'). '/Account/Login';
         try {
             $loginResponse = $clients->request('POST', $uri
                 , [
                     'timeout' => 30,
                     'headers' => [
-                        'Content-Type' => 'application/json-patch+json',
-                        'Accept' => 'application/json',
+                        'Content-Type' => 'application/json',
+                        'Accept'       => 'application/json',
                     ],
                     'json' => [
                         'UserName' => config('toptoll.username'),
